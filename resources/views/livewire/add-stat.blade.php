@@ -29,7 +29,7 @@
                         </div>
                         <div class=" col-sm-12 form-group">
                             <label>Description </label>
-                            <textarea name="description" class="summernote" rows="12" data-parsley-trigger="change"
+                            <textarea name="description" class="" rows="12" cols="60"
                                 required aria-required="true" >
                                                             {{ isset($branche)?$branche->description:"" }}
                                                 </textarea>
