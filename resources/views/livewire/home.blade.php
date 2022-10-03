@@ -120,17 +120,13 @@
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Téléphone 3</label>
                                                             <input type="text" placeholder="Téléphone "
-                                                                class="form-control" name='tel3' required
-                                                                aria-required="true"
-                                                                value="{{ !empty($user)?$user->tel3:"" }}"
-                                                                data-parsley-minlength="2"
-                                                                data-parsley-trigger="change">
+                                                                class="form-control" name='tel3'
+                                                                value="{{ !empty($user)?$user->tel3:"" }}">
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Email</label>
                                                             <input type="email" placeholder="Email "
-                                                                class="form-control" name='email' required
-                                                                aria-required="true"
+                                                                class="form-control" name='email' 
                                                                 value="{{ !empty($user)?$user->email:"" }}"
                                                                 data-parsley-minlength="2"
                                                                 data-parsley-trigger="change">
