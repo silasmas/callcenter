@@ -12,20 +12,21 @@
             <div class="col-lg-12">
                 <div class="tabs-container">
                     <ul class="nav nav-tabs">
-                        <li class="{{ $openedit?"active":"" }} active"><a data-toggle="tab" href="#tab-user">Ajouter un agent</a></li>
-                        <li class=""><a data-toggle="tab" href="#listAgent"> Liste agent 
-                             <span class="pull-right label label-danger">{{ count($users) }}</span></a></li>
+                        <li class="{{ $openedit?" active":"" }} active"><a data-toggle="tab" href="#tab-user">Ajouter un
+                                agent</a></li>
+                        <li class=""><a data-toggle="tab" href="#listAgent"> Liste agent
+                                <span class="pull-right label label-danger">{{ count($users) }}</span></a></li>
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane {{ $openedit?"active":"" }} active" id="tab-user">
+                        <div class="tab-pane {{ $openedit?" active":"" }} active" id="tab-user">
                             <div class="ibox-content" wire:loading.class='sk-loading'>
-                                <div class="sk-spinner sk-spinner-wandering-cubes" >
+                                <div class="sk-spinner sk-spinner-wandering-cubes">
                                     <div class="sk-cube1"></div>
                                     <div class="sk-cube2"></div>
                                 </div>
                                 <div class="panel-body">
                                     <form method="POST" class='form-group' id="formScript" data-parsley-validate
-                                        wire:submit.prevent="{{ $openedit?"updateUser":"addUser" }}">
+                                        wire:submit.prevent="{{ $openedit?" updateUser":"addUser" }}">
                                         @csrf
                                         <div class="row">
                                             <div>
@@ -124,62 +125,69 @@
 
                         <div id="listAgent" class="tab-pane">
                             <div class="panel-body">
-                                <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover dataTables-example">
-                                        <thead>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nom</th>
-                                                <th>Prénom</th>
-                                                <th>sexe</th>
-                                                <th>telephone</th>
-                                                <th>Email</th>
-                                                <th>Fonction</th>
-                                                <th>Niveau</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            @forelse ($users as $i)
-                                            <tr class="gradeX">
-                                                <td>{{ $loop->iteration}}</td>
-                                                <td>{{ $i->name }}</td>
-                                                <td>{{ $i->prenom }}</td>
-                                                <td>{{ $i->sexe }}</td>
-                                                <td>{{ $i->telephone }}</td>
-                                                <td>{{ $i->email }}</td>
-                                                <td>{{ $i->fonction }}</td>
-                                                <td>{{ $i->niveau}}</td>
-                                                <td class="text-center gradeX">
-                                                    <span class="btn btn-primary btn-circle btn-outline">
-                                                        <i class="fa fa-edit" wire:click="edite({{ $i->id}})"></i>
-                                                    </span>
-                                                    <small class="btn btn-danger btn-circle btn-outline">
-                                                        <a href="tel" title="adresse" id='delete'><i
-                                                                class="fa fa-trash"></i></a>
-                                                    </small>
-                                                </td>
-                                            </tr>
-                                            @empty
+                                <div class="ibox-content" wire:loading.class='sk-loading'>
+                                    <div class="sk-spinner sk-spinner-wandering-cubes">
+                                        <div class="sk-cube1"></div>
+                                        <div class="sk-cube2"></div>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table
+                                            class="table table-striped table-bordered table-hover dataTables-example">
+                                            <thead>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Nom</th>
+                                                    <th>Prénom</th>
+                                                    <th>sexe</th>
+                                                    <th>telephone</th>
+                                                    <th>Email</th>
+                                                    <th>Fonction</th>
+                                                    <th>Niveau</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @forelse ($users as $i)
+                                                <tr class="gradeX">
+                                                    <td>{{ $loop->iteration}}</td>
+                                                    <td>{{ $i->name }}</td>
+                                                    <td>{{ $i->prenom }}</td>
+                                                    <td>{{ $i->sexe }}</td>
+                                                    <td>{{ $i->telephone }}</td>
+                                                    <td>{{ $i->email }}</td>
+                                                    <td>{{ $i->fonction }}</td>
+                                                    <td>{{ $i->niveau}}</td>
+                                                    <td class="text-center gradeX">
+                                                        <span class="btn btn-primary btn-circle btn-outline">
+                                                            <i class="fa fa-edit" wire:click="edite({{ $i->id}})"></i>
+                                                        </span>
+                                                        <small class="btn btn-danger btn-circle btn-outline">
+                                                            <a href="tel" title="adresse" id='delete'><i
+                                                                    class="fa fa-trash"></i></a>
+                                                        </small>
+                                                    </td>
+                                                </tr>
+                                                @empty
 
-                                            @endforelse
+                                                @endforelse
 
 
-                                        </tbody>
-                                        <tfoot>
-                                            <tr>
-                                                <th>#</th>
-                                                <th>Nom</th>
-                                                <th>Prénom</th>
-                                                <th>sexe</th>
-                                                <th>telephone</th>
-                                                <th>Email</th>
-                                                <th>Fonction</th>
-                                                <th>Niveau</th>
-                                                <th>Options</th>
-                                            </tr>
-                                        </tfoot>
-                                    </table>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>#</th>
+                                                    <th>Nom</th>
+                                                    <th>Prénom</th>
+                                                    <th>sexe</th>
+                                                    <th>telephone</th>
+                                                    <th>Email</th>
+                                                    <th>Fonction</th>
+                                                    <th>Niveau</th>
+                                                    <th>Options</th>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
