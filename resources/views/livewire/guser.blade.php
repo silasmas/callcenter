@@ -18,8 +18,8 @@
                     </ul>
                     <div class="tab-content">
                         <div class="tab-pane {{ $openedit?"active":"" }} active" id="tab-user">
-                            <div class="ibox-content">
-                                <div class="sk-spinner sk-spinner-wandering-cubes" wire:loading.class='sk-loading'>
+                            <div class="ibox-content" wire:loading.class='sk-loading'>
+                                <div class="sk-spinner sk-spinner-wandering-cubes" >
                                     <div class="sk-cube1"></div>
                                     <div class="sk-cube2"></div>
                                 </div>
