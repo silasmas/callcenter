@@ -53,14 +53,13 @@
                                     <div class="tab-pane active">
                                         <div class='row'>
                                             <div class=" col-lg-12 col-sm-12">
-                                                <form method="POST" action="{{ route('addClient') }}" class='form-group' data-parsley-validate
-                                                    >
+                                                <form method="POST" action="{{ route('addClient') }}" class='form-group'
+                                                    data-parsley-validate>
                                                     {{-- onsubmit="add('addClient','#formScript','#formclient')" --}}
                                                     @csrf
                                                     <div class="row">
                                                         <div class="d-none" style="display: none">
-                                                            <input name="id" 
-                                                                value="{{ !empty($user)?$user->id:"" }}" />
+                                                            <input name="id" value="{{ !empty($user)?$user->id:"" }}" />
                                                         </div>
 
                                                         <div class="col-sm-4 form-group ">
@@ -111,8 +110,9 @@
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Email</label>
-                                                            <input type="email" placeholder="Email " class="form-control"
-                                                                name='email' required aria-required="true"
+                                                            <input type="email" placeholder="Email "
+                                                                class="form-control" name='email' required
+                                                                aria-required="true"
                                                                 value="{{ !empty($user)?$user->email:"" }}"
                                                                 data-parsley-minlength="2"
                                                                 data-parsley-trigger="change">
@@ -120,8 +120,8 @@
 
                                                         <div class="col-sm-3 form-group ">
                                                             <label>Ville</label>
-                                                            <select name="ville" class="select2 form-control"
-                                                                id="" required aria-required="true"
+                                                            <select name="ville" class="select2 form-control" id=""
+                                                                required aria-required="true"
                                                                 data-parsley-trigger="change" wire:model.defer="ville">
                                                                 @include("parties.listeVille")
 
@@ -130,10 +130,9 @@
                                                         </div>
                                                         <div class="col-sm-3 form-group ">
                                                             <label>Commune </label>
-                                                            <select name="commune"
-                                                                class="select2 carte2 form-control"
-                                                                class=" form-control" id="" required
-                                                                aria-required="true" data-parsley-trigger="change"
+                                                            <select name="commune" class="select2 carte2 form-control"
+                                                                id="" required aria-required="true"
+                                                                data-parsley-trigger="change"
                                                                 wire:model.defer="commune">
                                                                 @include("parties.listeCommune")
                                                                 <div class="help-block with-errors"></div>
@@ -186,5 +185,4 @@
             </div>
         </div>
     </div>
-
-    
+</div>

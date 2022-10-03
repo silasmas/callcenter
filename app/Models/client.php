@@ -10,7 +10,7 @@ class client extends Model
 {
     use HasFactory;
     protected $guarded=[];
-
+    protected $dates=['created_at','updated_at'];
     public function appel(){
         return $this->belongsToMany(libelle::class);
     }

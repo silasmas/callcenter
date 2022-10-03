@@ -22,6 +22,7 @@ class ClientController extends Controller
     {
         return view('pages.home');
     }
+ 
     public function addScript()
     {
         return view('pages.addscript');
@@ -112,7 +113,7 @@ class ClientController extends Controller
                     $st=sujet::find($request->statut);
                     clientLibelle::create([
                         'client_id' => $cl->id,
-                        'libelle_id' => $st,
+                        'libelle_id' => $st->titre,
                         'user_id' =>Auth::user()->id,
                         'commentaire' => $request->description,
                     ]);

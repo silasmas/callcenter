@@ -26,7 +26,7 @@
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/js/sweetalert/sweetalert.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/summernote/summernote.css') }}" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets/js/parsley/parsley.css') }}">
     @yield('autres_style')
 
     @livewireStyles();
@@ -71,15 +71,19 @@
 
                     <li class="{{ $titre == 'Accueil' ? 'active' : '' }}">
                         <a href="{{ route('dashboard') }}"><i class="fa fa-home"></i>
-                            <span class="nav-label">Accueil</span>
+                            <span class="nav-label">Accueil</span></a>
                     </li>
-                    <li class="{{ $titre == 'dashboard' ? 'active' : '' }}">
-                        <a href=""><i class="fa fa-th-large"></i>
+                    @if(Auth::user()->niveau==3 )
+                    <li class="{{ $titre == 'Admin' ? 'active' : '' }}">
+                        <a href="{{ route('admin') }}"><i class="fa fa-th-large"></i>
                             <span class="nav-label">Dashboard</span></a>
                     </li>
 
-                    <li class="{{ strpos($titre, 'Gestion') === 0 ? 'active' : '' }}">
-                        <a href="#"><i class="fa fa-home"></i> <span class="nav-label">Pages </span>
+                    @endif
+                    @if(Auth::user()->niveau==3||Auth::user()->niveau==2)
+
+                    <li class="">
+                        <a href="#"><i class="fa fa-pencil"></i> <span class="nav-label">Pages </span>
                             <span class="pull-right label label-primary">Gestion</span></a>
                         <ul class="nav nav-second-level collapse">
                             <li class="{{ $titre == 'Gestion Banche' || $titre == 'Gestion Service' ? 'active' : '' }}">
@@ -92,8 +96,11 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="{{ strpos($titre, 'Gestion') === 0 ? 'active' : '' }}">
-                        <a href="#"><i class="fa fa-home"></i> <span class="nav-label">Pages </span>
+                    @endif
+                    @if(Auth::user()->niveau==3||Auth::user()->niveau==2)
+
+                    <li class="">
+                        <a href="#"><i class="fa fa-plus"></i> <span class="nav-label">Pages </span>
                             <span class="pull-right label label-primary">Insertion</span></a>
                         <ul class="nav nav-second-level collapse">
                             <li class="{{ $titre == 'Ajout Script' ? 'active' : '' }}">
@@ -106,13 +113,16 @@
                             </li>
                         </ul>
                     </li>
+                    @endif
+                    @if(Auth::user()->niveau==3)
 
-                    <li class="{{ $titre == 'Utilisateurs' ? 'active' : '' }}">
-                        <a href="">
-                            <i class="fa fa-user"></i>
+                    <li class="{{ $titre == 'Gestion user' ? 'active' : '' }}">
+                        <a href="{{ route('guser') }}">
+                            <i class="fa fa-users"></i>
                             <span class="nav-label">Utilisateurs</span>
-                            <span class="pull-right label label-danger">0</span></a>
+                        </a>
                     </li>
+                    @endif
                 </ul>
 
             </div>
@@ -190,7 +200,8 @@
 
     <script src="{{ asset('assets/js/sweetalert/sweetalert.min.js') }}"></script>
     <script src="{{ asset('assets/js/summernote/summernote.min.js') }}"></script>
-
+    <script src="{{ asset('assets/js/parsley/js/parsley.js') }}"></script>
+    <script src="{{ asset('assets/js/parsley/i18n/fr.js') }}"></script>
     @yield('autres-script')
     @livewireScripts();
     {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}

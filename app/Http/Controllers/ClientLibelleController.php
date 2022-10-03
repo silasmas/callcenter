@@ -15,7 +15,19 @@ class ClientLibelleController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.amdin');
+    }
+    public function gstatu()
+    {
+        
+    }
+    public function gscripte()
+    {
+        
+    }
+    public function guser()
+    {
+        return view('pages.guser');
     }
 
     /**

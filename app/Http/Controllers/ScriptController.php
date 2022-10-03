@@ -38,7 +38,7 @@ class ScriptController extends Controller
     public function store(Request $request)
     {
         $por = Validator::make($request->all(), [
-            'niveau' => 'required|int',
+            'niveau' => 'required|int|unique:scripts',
         ]);
         if ($por->passes()) {
            

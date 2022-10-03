@@ -27,8 +27,8 @@
 
                     </ul>
                     <div class="tab-content">
-                        <div class="tab-pane active" id="tab-script">
-                            <div class="panel-body">
+                        <div class="tab-pane active" >
+                            <div class="panel-body" id="tab-script">
                                 <div class="ibox-content">
                                     <div class="sk-spinner sk-spinner-wandering-cubes">
                                         <div class="sk-cube1"></div>
@@ -64,7 +64,7 @@
                                                     
                                                     <div class=" col-sm-12 form-group">
                                                         <label>Description </label>
-                                                        <textarea name="description" class="summernote" rows="12"
+                                                        <textarea name="description" class="form-control" rows="6" cols="60"
                                                         wire:model="description">
                                                             {{ isset($branche)?$branche->description:"" }}
                                                 </textarea>
