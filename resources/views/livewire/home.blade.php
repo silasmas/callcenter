@@ -25,7 +25,7 @@
                                     <div class="row ">
                                         <div class="col-lg-8">
                                             <div class="form-inlin">
-                                                <input type="text" placeholder="Tapez le nom ou le numéro du client"
+                                                <input type="text" placeholder="Trouvez un clien par son nom, prenom,téléphone ou l'e-mail pour éviter les doublons"
                                                     class="form-control" name='titre' autocomplete="off"
                                                     wire:model.debounce.500ms="client">
 
