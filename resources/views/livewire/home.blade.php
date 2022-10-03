@@ -109,6 +109,24 @@
                                                                 data-parsley-trigger="change">
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
+                                                            <label>Téléphone 2</label>
+                                                            <input type="text" placeholder="Téléphone "
+                                                                class="form-control" name='tel2' required
+                                                                aria-required="true"
+                                                                value="{{ !empty($user)?$user->tel2:"" }}"
+                                                                data-parsley-minlength="2"
+                                                                data-parsley-trigger="change">
+                                                        </div>
+                                                        <div class="col-sm-4 form-group ">
+                                                            <label>Téléphone 3</label>
+                                                            <input type="text" placeholder="Téléphone "
+                                                                class="form-control" name='tel3' required
+                                                                aria-required="true"
+                                                                value="{{ !empty($user)?$user->tel3:"" }}"
+                                                                data-parsley-minlength="2"
+                                                                data-parsley-trigger="change">
+                                                        </div>
+                                                        <div class="col-sm-4 form-group ">
                                                             <label>Email</label>
                                                             <input type="email" placeholder="Email "
                                                                 class="form-control" name='email' required
@@ -118,7 +136,7 @@
                                                                 data-parsley-trigger="change">
                                                         </div>
 
-                                                        <div class="col-sm-3 form-group ">
+                                                        <div class="col-sm-4 form-group ">
                                                             <label>Ville</label>
                                                             <select name="ville" class="select2 form-control" id=""
                                                                 required aria-required="true"
@@ -153,6 +171,15 @@
                                                                 class="form-control" name='avenu' required
                                                                 aria-required="true"
                                                                 value="{{ !empty($user)?$user->avenu:"" }}"
+                                                                data-parsley-minlength="2"
+                                                                data-parsley-trigger="change">
+                                                        </div>
+                                                        <div class="col-sm-3 form-group ">
+                                                            <label>Numéro </label>
+                                                            <input type="text" placeholder="Numéro "
+                                                                class="form-control" name='numero' required
+                                                                aria-required="true"
+                                                                value="{{ !empty($user)?$user->numero:"" }}"
                                                                 data-parsley-minlength="2"
                                                                 data-parsley-trigger="change">
                                                         </div>

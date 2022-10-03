@@ -22,7 +22,7 @@ class ClientController extends Controller
     {
         return view('pages.home');
     }
- 
+
     public function addScript()
     {
         return view('pages.addscript');
@@ -62,10 +62,13 @@ class ClientController extends Controller
                     'prenom' => $request->prenom,
                     'sexe' => $request->sexe,
                     'telephone' => $request->telephone,
+                    'tel2' => $request->tel2,
+                    'tel3' => $request->tel3,
                     'ville' => $request->ville,
                     'commune' => $request->commune,
                     'quartier' => $request->quartier,
                     'avenu' => $request->avenu,
+                    'numero' => $request->numero,
                     'email' => $request->email,
                 ]);
                 if($client){
@@ -103,10 +106,13 @@ class ClientController extends Controller
                     $cl->prenom = $request->prenom;
                     $cl->sexe = $request->sexe;
                     $cl->telephone = $request->telephone;
+                    $cl->tel2 = $request->tel2;
+                    $cl->tel3 = $request->tel3;
                     $cl->ville = $request->ville;
                     $cl->commune = $request->commune;
                     $cl->quartier = $request->quartier;
                     $cl->avenu = $request->avenu;
+                    $cl->numero = $request->numero;
                     $cl->email = $request->email;
                     $cl->save();
                 if(empty($request->libelle)){
@@ -130,9 +136,9 @@ class ClientController extends Controller
                     // return response()->json(['reponse' => true,'msg' => 'Enregistrement réussit']);
                 }
             }
-               
+
             }
-        
+
     }
 
     /**
