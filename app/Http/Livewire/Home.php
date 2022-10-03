@@ -29,10 +29,11 @@ class Home extends Component
     }
 
     public function updatedClient(){
-        $this->tab = client::where("nom","{$this->client}")
-        ->orWhere("telephone","{$this->client}")
-        ->orWhere("prenom","{$this->client}")
-        ->orWhere("email","{$this->client}")
+        $this->tab = client::where("nom","LIKE","{$this->client}")
+        ->orWhere("telephone","LIKE","{$this->client}")
+        ->orWhere("nom","LIKE","{$this->client}")
+        ->orWhere("prenom","LIKE","{$this->client}")
+        ->orWhere("email","LIKE","{$this->client}")
         ->first();
 
         //  dd($this->tab);
