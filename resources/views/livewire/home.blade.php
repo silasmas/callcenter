@@ -73,11 +73,8 @@
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Post-nom</label>
                                                             <input type="text" placeholder="Post-nom "
-                                                                class="form-control" name='postnom' required
-                                                                aria-required="true"
-                                                                value="{{ !empty($user)?$user->postnom:"" }}"
-                                                                data-parsley-minlength="2"
-                                                                data-parsley-trigger="change">
+                                                                class="form-control" name='postnom' 
+                                                                value="{{ !empty($user)?$user->postnom:"" }}">
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Prénom</label>
@@ -111,8 +108,7 @@
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Téléphone 2</label>
                                                             <input type="text" placeholder="Téléphone "
-                                                                class="form-control" name='tel2' required
-                                                                aria-required="true"
+                                                                class="form-control" name='tel2'
                                                                 value="{{ !empty($user)?$user->tel2:"" }}"
                                                                 data-parsley-minlength="2"
                                                                 data-parsley-trigger="change">
@@ -125,11 +121,9 @@
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Email</label>
-                                                            <input type="email" placeholder="Email "
-                                                                class="form-control" name='email' 
-                                                                value="{{ !empty($user)?$user->email:"" }}"
-                                                                data-parsley-minlength="2"
-                                                                data-parsley-trigger="change">
+                                                            <input type="text" placeholder="Email "
+                                                                class="form-control" name='email'
+                                                                value="{{ !empty($user)?$user->email:"" }}">
                                                         </div>
 
                                                         <div class="col-sm-4 form-group ">
@@ -155,29 +149,20 @@
                                                         <div class="col-sm-3 form-group ">
                                                             <label>Quartier</label>
                                                             <input type="text" placeholder="Quartier "
-                                                                class="form-control" name='quartier' required
-                                                                aria-required="true"
-                                                                value="{{ !empty($user)?$user->quartier:"" }}"
-                                                                data-parsley-minlength="2"
-                                                                data-parsley-trigger="change">
+                                                                class="form-control" name='quartier' 
+                                                                value="{{ !empty($user)?$user->quartier:"" }}">
                                                         </div>
                                                         <div class="col-sm-3 form-group ">
                                                             <label>Avenue</label>
                                                             <input type="text" placeholder="Avenue "
-                                                                class="form-control" name='avenu' required
-                                                                aria-required="true"
-                                                                value="{{ !empty($user)?$user->avenu:"" }}"
-                                                                data-parsley-minlength="2"
-                                                                data-parsley-trigger="change">
+                                                                class="form-control" name='avenu'
+                                                                value="{{ !empty($user)?$user->avenu:"" }}">
                                                         </div>
                                                         <div class="col-sm-3 form-group ">
                                                             <label>Numéro </label>
                                                             <input type="text" placeholder="Numéro "
-                                                                class="form-control" name='numero' required
-                                                                aria-required="true"
-                                                                value="{{ !empty($user)?$user->numero:"" }}"
-                                                                data-parsley-minlength="2"
-                                                                data-parsley-trigger="change">
+                                                                class="form-control" name='numero'
+                                                                value="{{ !empty($user)?$user->numero:"" }}">
                                                         </div>
                                                         @livewire('historique')
                                                         <div class=" col-sm-12 form-group">

@@ -52,7 +52,7 @@ class ClientController extends Controller
     {
             if ($request->id=="") {
                 $por = Validator::make($request->all(), [
-                    'email' => 'required|unique:clients',
+                    // 'email' => 'required|unique:clients',
                     'telephone' => 'required|unique:clients',
                 ]);
                 if ($por->passes()) {
