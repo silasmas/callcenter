@@ -213,9 +213,15 @@
                                                                 cols="60" wire:model.defer='description'>
                                                                 </textarea>
                                                         </div>
-                                                        <div class="col-lg-offset-3 col-lg-6 col-sm-12 form-group">
-
-                                                            <div class="col-sm-offset-4 col-sm-5">
+                                                        <div class="col-lg-offset-3 col-lg-6 col-sm-12 form-group" >
+                                                            <div class="col-sm-5" >
+                                                                <button class="btn btn-sm btn-warning"
+                                                                wire:click="modifClient" @disabled($modif)
+                                                                wire:loading.property='disabled'>Modifier </button>
+            
+                                                            </div>
+                                                          
+                                                            <div class="col-sm-offset-1 col-sm-5">
                                                                 <button class="ladda-button btn btn-sm btn-primary"
                                                                     type="submit">Enregistrer</button>
 
@@ -223,6 +229,7 @@
                                                         </div>
                                                     </div>
                                                 </form>
+                                                
                                             </div>
                                         </div>
                                     </div>

@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 class Home extends Component
 {
     public $existe=true;
+    public $modif=true;
     public $client="";
     public $user;
     public $tab;
@@ -174,6 +175,35 @@ class Home extends Component
         }
 
     }
+    public function modifClient(){
+        // dd('ok');
+        if ($this->ids=="") {
+            $this->vider();
+            $this->notify("danger","Echec de modification","Merci");
+        } else {
+           $cl= client::find($this->ids);
+           if($cl){
+                $cl->nom = $this->nom==""?$cl->nom:$this->nom;
+                $cl->postnom = $this->postnom==""?$cl->postnom:$this->postnom;
+                $cl->prenom = $this->prenom==""?$cl->prenom:$this->prenom;
+                $cl->sexe = $this->sexe==""?$cl->sexe:$this->sexe;
+                $cl->telephone = $this->telephone==""?$cl->telephone:$this->telephone;
+                $cl->tel2 = $this->tel2==""?$cl->tel2:$this->tel2;
+                $cl->tel3 = $this->tel3==""?$cl->tel3:$this->tel3;
+                $cl->ville = $this->ville==""?$cl->ville:$this->ville;
+                $cl->commune = $this->commune==""?$cl->commune:$this->commune;
+                $cl->quartier = $this->quartier==""?$cl->quartier:$this->quartier;
+                $cl->avenu = $this->avenu==""?$cl->avenu:$this->avenu;
+                $cl->numero = $this->numero==""?$cl->numero:$this->numero;
+                $cl->email = $this->email==""?$cl->email:$this->email;
+                $cl->save();
+                $this->vider();
+                $this->notify("success","Modification réussit","Merci");
+        }
+
+        }
+
+    }
     private function notify($type,$msg,$titre){
         session()->flash('message', $msg);
                 session()->flash('type',$type);
@@ -201,6 +231,7 @@ class Home extends Component
          $this->commune=$this->user->commune;
          $this->sexe=$this->user->sexe;
          $this->ids=$this->user->id;
+         $this->modif=false;
     }
    
     private function vider(){
@@ -220,10 +251,13 @@ class Home extends Component
         $this->ids="";
         $this->libelle="";
         $this->statut="";
+        $this->client="";
 
         $this->libelles=[];
         $this->statuts=null;
         $this->selectstatut=null;
+        $this->existe=true;
+        $this->modif=true;
     }
     public function render()
     {
