@@ -7,7 +7,7 @@
         <div class="col-sm-4 form-group ">
             <label>Satut 1 </label>
             <select name="statut" id="statut" class="form-control select2" onchange="select(this.value)"
-            required >
+            required wire:model.defer='statut'>
                 <option value=" " disabled selected> --Selectionez un
                     statut--</option>
                 @forelse ($statu as $s)
@@ -21,7 +21,7 @@
         @if(count($libelle)>0)
         <div class="col-sm-4 form-group d-none">
             <label>Libelle</label>
-            <select name="libelle" id="libelle" class="form-control select2" required>
+            <select name="libelle" id="libelle" class="form-control select2" required wire:model.defer='libelle'>
                 <option value="" disabled selected> --Selectionez un
                     statut-- </option>
                 @forelse ($libelle as $s)

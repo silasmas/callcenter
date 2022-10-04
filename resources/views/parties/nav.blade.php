@@ -10,7 +10,7 @@
                     Historique
                 </a></li>
             <li><a data-toggle="tab" href="#tab-2">
-                    Statistique
+                    Info
                 </a></li>
         </ul>
 

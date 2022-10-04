@@ -212,17 +212,6 @@
                 text: event.detail.text,
                 icon: event.detail.type,
             });
-            switch (event.detail.from) {
-                case "Monpanier":
-                    // window.livewire.emit('updateMonPanier');
-                    break;
-                case "Detail":
-                    //  window.livewire.emit('updateDetail');
-                    break;
-
-                default:
-                    break;
-            }
         });
         window.addEventListener('swal:confirm', event => {
             swal({

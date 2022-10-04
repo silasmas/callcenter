@@ -2,11 +2,13 @@
 
 namespace App\Http\Livewire;
 
+use App\Models\User;
+use App\Models\sujet;
 use App\Models\client;
 use App\Models\libelle;
-use App\Models\sujet;
-use App\Models\User;
 use Livewire\Component;
+use App\Models\clientLibelle;
+use Illuminate\Support\Facades\Auth;
 
 class Home extends Component
 {
@@ -16,8 +18,24 @@ class Home extends Component
     public $tab;
     public $ville="";
     public $commune="";
+    public $nom="";
+    public $postnom="";
+    public $prenom="";
+    public $telephone="";
+    public $tel2="";
+    public $tel3="";
+    public $email="";
+    public $avenu="";
+    public $numero="";
+    public $quartier="";
+    public $statut="";
+    public $libelle="";
+    public $ids="";
     public $sexe="";
-   
+    public $description="";
+    public $libelles=[];
+    public $statuts=null;
+    public $selectstatut=null;
     protected $queryString=[
         'client'=>['except'=>'']
     ];
@@ -27,7 +45,19 @@ class Home extends Component
     private function s($val){
         return $val>2?"s":"";
     }
-
+    public function amount(){
+        $this->libelles=collect();
+    }
+    public function updatedSelectStatut(){
+       
+        $this->libelles=libelle::where("sujet_id",$this->selectstatut)
+        ->get();
+        // dd(  $this->libelle);
+    }
+    public function sousmenu($id){
+        $this->libelles=libelle::where("id",$id)
+        ->get();
+    }
     public function updatedClient(){
         $this->tab = client::where("nom","LIKE","{$this->client}")
         ->orWhere("telephone","LIKE","{$this->client}")
@@ -39,9 +69,10 @@ class Home extends Component
         //  dd($this->tab);
         if ($this->tab) {
             $this->existe=false;
+            $this->ids=$this->tab->id;
             // $this->user=$this->tab;
             //session()->with(['message'=>count($tab).' Client(s) trouvé(s)',"type"=>"success"]);
-            session()->flash('message',' Client'.$this->s($this->tab->count()). ' trouvé'.$this->s($this->tab->count()));
+            session()->flash('message',' Client '.$this->s($this->tab->count()). ' trouvé'.$this->s($this->tab->count()));
             session()->flash('type', 'success');
         } else {
             $this->existe=true;
@@ -51,22 +82,152 @@ class Home extends Component
 
         return $this->tab ;
     }
-    
-    // public function updatedLibelle(){
-    //     $this->libelle=libelle::where("id",$id)
-    //     ->get();
-    // }
+    protected $rules = [
+        'telephone' => 'required',
+    ];
+    public function saveClient(){
+        if ($this->ids=="") {
+            $this->validate();
+
+           $client= client::create([
+                'nom' => $this->nom,
+                'postnom' => $this->postnom,
+                'prenom' => $this->prenom,
+                'sexe' => $this->sexe,
+                'telephone' => $this->telephone,
+                'tel2' => $this->tel2,
+                'tel3' => $this->tel3,
+                'ville' => $this->ville,
+                'commune' => $this->commune,
+                'quartier' => $this->quartier,
+                'avenu' => $this->avenu,
+                'numero' => $this->numero,
+                'email' => $this->email,
+            ]);
+            if($client){
+                if(empty($this->libelle)){
+                    $st=sujet::find($this->statut);
+                    clientLibelle::create([
+                        'client_id' => $client->id,
+                        'libelle_id' => $st->titre,
+                        'user_id' =>Auth::user()->id,
+                        'commentaire' => $this->description,
+                    ]);
+                    $this->vider();
+                    $this->notify("success","Enregistrement réussit","Merci");
+
+                }else{
+                    clientLibelle::create([
+                        'client_id' => $client->id,
+                        'libelle_id' => $this->libelle,
+                        'user_id' => Auth::user()->id,
+                        'commentaire' => $this->description,
+                    ]);
+                    
+                    $this->vider();
+                    $this->notify("success","Enregistrement réussit","Merci");
+
+                }
+            }
+        
+        } else {
+           $cl= client::find($this->ids);
+           if($cl){
+                $cl->nom = $this->nom;
+                $cl->postnom = $this->postnom;
+                $cl->prenom = $this->prenom;
+                $cl->sexe = $this->sexe;
+                $cl->telephone = $this->telephone;
+                $cl->tel2 = $this->tel2;
+                $cl->tel3 = $this->tel3;
+                $cl->ville = $this->ville;
+                $cl->commune = $this->commune;
+                $cl->quartier = $this->quartier;
+                $cl->avenu = $this->avenu;
+                $cl->numero = $this->numero;
+                $cl->email = $this->email;
+                $cl->save();
+            if(empty($this->libelle)){
+                $st=sujet::find($this->statut);
+                clientLibelle::create([
+                    'client_id' => $cl->id,
+                    'libelle_id' => $st->titre,
+                    'user_id' =>Auth::user()->id,
+                    'commentaire' => $this->description,
+                ]);
+                
+                $this->vider();
+                $this->notify("success","Enregistrement réussit","Merci");
+            }else{
+                clientLibelle::create([
+                    'client_id' => $cl->id,
+                    'libelle_id' => $this->libelle,
+                    'user_id' => Auth::user()->id,
+                    'commentaire' => $this->description,
+                ]);
+                
+                $this->vider();
+                $this->notify("success","Enregistrement réussit","Merci");
+            }
+        }
+
+        }
+
+    }
+    private function notify($type,$msg,$titre){
+        session()->flash('message', $msg);
+                session()->flash('type',$type);
+        $this->dispatchBrowserEvent('swal:modal',[
+            'type'=>$type,
+            'titre'=>$titre,
+            'text'=>$msg,
+            'from'=>"client",
+        ]);
+    }
     public function opneFolder($id){
         $this->user=client::where("id",$id)
         ->first();
+         $this->nom=$this->user->nom;
+         $this->postnom=$this->user->postnom;
+         $this->prenom=$this->user->prenom;
+         $this->telephone=$this->user->telephone;
+         $this->tel2=$this->user->tel2;
+         $this->tel3=$this->user->tel3;
+         $this->email=$this->user->email;
+         $this->quartier=$this->user->quartier;
+         $this->avenu=$this->user->avenu;
+         $this->numero=$this->user->numero;
          $this->ville=$this->user->ville;
          $this->commune=$this->user->commune;
          $this->sexe=$this->user->sexe;
+         $this->ids=$this->user->id;
     }
    
+    private function vider(){
+        $this->nom="";
+        $this->postnom="";
+        $this->prenom="";
+        $this->telephone="";
+        $this->tel2="";
+        $this->tel3="";
+        $this->email="";
+        $this->quartier="";
+        $this->avenu="";
+        $this->numero="";
+        $this->ville="";
+        $this->commune="";
+        $this->sexe="";
+        $this->ids="";
+        $this->libelle="";
+        $this->statut="";
+
+        $this->libelles=[];
+        $this->statuts=null;
+        $this->selectstatut=null;
+    }
     public function render()
     {
-    
-        return view('livewire.home');
+        $statu=sujet::all();
+        return view('livewire.home',compact("statu"));
     }
 }
