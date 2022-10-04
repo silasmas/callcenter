@@ -65,7 +65,7 @@
                                                     <div class=" col-sm-12 form-group">
                                                         <label>Description </label>
                                                         <textarea name="description" class="form-control" rows="6" cols="60"
-                                                        wire:model="description">
+                                                        wire:model.defer="description">
                                                             {{ isset($branche)?$branche->description:"" }}
                                                 </textarea>
                                                     </div>
