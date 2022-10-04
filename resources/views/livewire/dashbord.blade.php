@@ -1,4 +1,4 @@
-<div wire:poll>
+<div>
     <div class="tabs-container">
         <ul class="nav nav-tabs">
             <li class="active"><a data-toggle="tab" href="#tab_publication">Rapport</a></li>
