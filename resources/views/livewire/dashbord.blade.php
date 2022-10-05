@@ -136,7 +136,7 @@
                 sortDescending: ": activer pour trier la colonne par ordre décroissant"
             }
         },
-        pageLength: 25,
+        pageLength: 10,
         responsive: true,
         dom: '<"html5buttons"B>lTfgitp',
         buttons: [{
