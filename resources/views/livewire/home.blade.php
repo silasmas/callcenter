@@ -145,46 +145,41 @@
                                                                 </div>
                                                             </select>
                                                         </div>
-                                                        <div class="col-sm-4 form-group ">
-                                                            <label>Commune </label>
-                                                            <select name="commune" class="select2 carte2 form-group"
-                                                                id=""
-                                                                wire:model.defer="commune">
-                                                                @include("parties.listeCommune")
-                                                                <div class="help-block with-errors">
-                                                                @error('commune') <span class="error text-danger">{{ $message }}</span> @enderror                                                            </div>
-                                                            </select>
-                                                        </div>
-                                                        <div class="col-sm-3 form-group ">
-                                                            <label>Quartier</label>
-                                                            <input type="text" placeholder="Quartier "
-                                                                class="form-control" name='quartier' {{--
-                                                                value="{{ !empty($user)?$user->quartier:"" }}" --}}
-                                                                wire:model.defer='commune'>
-                                                                @error('quartier') <span class="error text-danger">{{ $message }}</span> @enderror
-
-                                                        </div>
-                                                        <div class="col-sm-3 form-group ">
-                                                            <label>Avenue</label>
-                                                            <input type="text" placeholder="Avenue "
-                                                                class="form-control" name='avenu' {{--
-                                                                value="{{ !empty($user)?$user->avenu:"" }}" --}}
-                                                                wire:model.defer='avenu'>
-                                                                @error('avenu') <span class="error text-danger">{{ $message }}</span> @enderror
-                                                        </div>
-                                                        <div class="col-sm-2 form-group ">
-                                                            <label>Numéro </label>
-                                                            <input type="text" placeholder="Numéro "
-                                                                class="form-control" name='numero' {{--
-                                                                value="{{ !empty($user)?$user->numero:"" }}" --}}
-                                                                wire:model.defer='numero'>
-                                                                @error('numero') <span class="error text-danger">{{ $message }}</span> @enderror
-
-                                                        </div>
+                                                            <div class="col-sm-4 form-group ">
+                                                                <label>Commune </label>
+                                                                <select name="commune" class="carte2 form-control"
+                                                                    id="" wire:model.defer="commune">
+                                                                    @include("parties.listeCommune")
+                                                                </select>
+                                                                @error('commune') <span class="error text-danger">{{ $message }}</span> @enderror                                                    
+                                                            </div>
+                                                            <div class="col-sm-3 form-group ">
+                                                                <label>Quartier</label>
+                                                                <input type="text" placeholder="Quartier "
+                                                                    class="form-control" name='quartier'
+                                                                    wire:model.defer='commune'>
+                                                                    @error('quartier') <span class="error text-danger">{{ $message }}</span> @enderror
+    
+                                                            </div>
+                                                            <div class="col-sm-3 form-group ">
+                                                                <label>Avenue</label>
+                                                                <input type="text" placeholder="Avenue "
+                                                                    class="form-control" name='avenu' 
+                                                                    wire:model.defer='avenu'>
+                                                                    @error('avenu') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            </div>
+                                                            <div class="col-sm-2 form-group ">
+                                                                <label>Numéro </label>
+                                                                <input type="text" placeholder="Numéro "
+                                                                    class="form-control" name='numero' 
+                                                                    wire:model.defer='numero'>
+                                                                    @error('numero') <span class="error text-danger">{{ $message }}</span> @enderror
+    
+                                                            </div>
                                                         <div class="col-sm-6 form-group ">
                                                             <label>Satut 1 </label>
                                                             <select name="statut" id="statut"
-                                                                class="form-group select2"
+                                                                class="form-control select2"
                                                                 onchange="select(this.value)" required
                                                                 wire:model.defer='statut'>
                                                                 <option value=" " disabled selected> --Selectionez un
