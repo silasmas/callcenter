@@ -84,6 +84,7 @@ class Home extends Component
         return $this->tab ;
     }
     protected $rules = [
+        'nom' => 'required',
         'telephone' => 'required',
     ];
     public function saveClient(){
