@@ -21,7 +21,7 @@
                                 <div class="col-lg-3">
                                     <div class="form-inlin">                                        
                                         <button class="btn btn-sm btn-primary" type="submit" 
-                                        wire:submite.prevent="byDate">
+                                        wire:click.prevent="byDate">
                                             <i class="fa fa-search"></i> Enoyer</button>
 
                                     </div>
@@ -55,6 +55,7 @@
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            {{-- {{ dd($all) }} --}}
                                             @forelse ($all as $i)
                                             <tr class="gradeX">
                                                 <td>{{ $loop->iteration}}</td>
@@ -67,14 +68,14 @@
                                                 <td>{{ 'V/ '.$i->ville." C/ ".$i->commune." Q/ ".$i->quartier." AV/
                                                     ".$i->avenu }}</td>
                                                 <td>{{ $i->libelle_id }}</td>
-                                                <td>{{ Str::limit($i->commentaire, 100, '...') }}</td>
+                                                <td>{{ Str::limit($i->commentaire, 100  , '...') }}</td>
                                                 <td>{{ $i->un." ".$i->up }}</td>
                                                 <td> {{ \Carbon\Carbon::parse( $i->created_at)->isoFormat('LLLL') }}
                                                 </td>
 
                                             </tr>
                                             @empty
-
+<span>Aucune info trouvée</span>
                                             @endforelse
 
 
