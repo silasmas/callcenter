@@ -30,76 +30,76 @@
 
 
             </div>
-                  
+
             <div id="tab-2" class="tab-pane">
                 <div class="sidebar-title">
-                    <h3> <i class="fa fa-info-circle"></i>  Info sur l'adresse des agence BGFI</h3>
+                    <h3> <i class="fa fa-info-circle"></i> Info sur l'adresse des agence BGFI</h3>
                     {{-- <small><i class="fa fa-info"></i></small> --}}
                 </div>
                 <ul class="sidebar-list">
                     <li>
-                        <a href="#">                            
-                            <h4>1/ KINSHASA :</h4>                          
+                        <a href="#">
+                            <h4>1/ KINSHASA :</h4>
                             <span>
-                                KINTAMBO : SHALOOM MANGINDULA
-                            </span>
-                            <span>
-                                CENTRE D AFFAIRE : SANCHO EKAYE KAZADI
-                            </span>
-                            <span>
-                                VENUS : JERRY MONSHENGWO ALILO
-                            </span>
-                            <span>
-                                ROYAL (SIEGE) : ISAAC IBUABU
-                            </span>
+                    <li> KINTAMBO : SHALOOM MANGINDULA</li>
+                    </span>
+                    <span>
+                        <li> CENTRE D AFFAIRE : SANCHO EKAYE KAZADI</li>
+                    </span>
+                    <span>
+                        <li> VENUS : JERRY MONSHENGWO ALILO</li>
+                    </span>
+                    <span>
+                        <li> ROYAL (SIEGE) : ISAAC IBUABU</li>
+                    </span>
+                    </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <h4>2/ LUBUMBASHI : JEAN FELIX MULUMBA</h4>
+
                         </a>
                     </li>
                     <li>
-                        <a href="#">                            
-                            <h4>2/ LUBUMBASHI : JEAN FELIX MULUMBA</h4>                          
-                            
+                        <a href="#">
+                            <h4>3/ BOMA : GRACE KIALA</h4>
+
                         </a>
                     </li>
                     <li>
-                        <a href="#">                            
-                            <h4>3/ BOMA : GRACE KIALA</h4>                          
-                            
+                        <a href="#">
+                            <h4>4/ MATADI : BLANCHE MASSANGA </h4>
+
                         </a>
                     </li>
                     <li>
-                        <a href="#">                            
-                            <h4>4/ MATADI : BLANCHE MASSANGA </h4>                          
-                            
+                        <a href="#">
+                            <h4>5/ MBUJI-MAYI : MICHAEL TCHAMANI</h4>
+
                         </a>
                     </li>
                     <li>
-                        <a href="#">                            
-                            <h4>5/ MBUJI-MAYI : MICHAEL TCHAMANI</h4>                          
-                            
+                        <a href="#">
+                            <h4>6/ BUNIA :SAMUEL LIRIPA SAFARI</h4>
+
                         </a>
                     </li>
                     <li>
-                        <a href="#">                            
-                            <h4>6/ BUNIA :SAMUEL LIRIPA SAFARI</h4>                          
-                            
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">                            
-                            <h4>7/ KOLOWEZI :WILLY BUKASA</h4>                          
-                            
+                        <a href="#">
+                            <h4>7/ KOLOWEZI :WILLY BUKASA</h4>
+
                         </a>
                     </li>
                 </ul>
-               
-               
+
+
 
             </div>
 
             <div id="tab-3" class="tab-pane">
 
                 @livewire('journal')
-               
+
             </div>
         </div>
 
