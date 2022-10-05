@@ -145,9 +145,9 @@
                                                                 </div>
                                                             </select>
                                                         </div>
-                                                        <div class="col-sm-3 form-group ">
+                                                        <div class="col-sm-4 form-group ">
                                                             <label>Commune </label>
-                                                            <select name="commune" class="select2 carte2 form-control"
+                                                            <select name="commune" class="select2 carte2 form-group"
                                                                 id=""
                                                                 wire:model.defer="commune">
                                                                 @include("parties.listeCommune")
@@ -172,7 +172,7 @@
                                                                 wire:model.defer='avenu'>
                                                                 @error('avenu') <span class="error text-danger">{{ $message }}</span> @enderror
                                                         </div>
-                                                        <div class="col-sm-3 form-group ">
+                                                        <div class="col-sm-2 form-group ">
                                                             <label>Numéro </label>
                                                             <input type="text" placeholder="Numéro "
                                                                 class="form-control" name='numero' {{--
@@ -181,10 +181,10 @@
                                                                 @error('numero') <span class="error text-danger">{{ $message }}</span> @enderror
 
                                                         </div>
-                                                        <div class="col-sm-4 form-group ">
+                                                        <div class="col-sm-6 form-group ">
                                                             <label>Satut 1 </label>
                                                             <select name="statut" id="statut"
-                                                                class="form-control select2"
+                                                                class="form-group select2"
                                                                 onchange="select(this.value)" required
                                                                 wire:model.defer='statut'>
                                                                 <option value=" " disabled selected> --Selectionez un
@@ -259,26 +259,17 @@
         </div>
     </div>
 </div>
-
 @section('autres-script')
+<script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('assets/js/jasny/jasny-bootstrap.min.js') }}"></script>
+
 <script>
+    $(document).ready(function() {    
+        $(".select2").select2(); 
+    });
     function select(id){
         var $state = $('#libelle');
         @this.selectstatut=id;
-            // $.ajax({
-            //     url: "statut",
-            //     data: {
-            //        stat_id: id
-            //     },
-            //     success: function (data) {
-            //         console.log(data)
-            //         @this.libelle=data;
-            //         $state.html('<option value="" disabled selected> --Selectionez un statut-- </option>');
-            //         $.each(data, function (id, value) {
-            //             $state.append('<option value="' + id + '">' + value.description + '</option>');
-            //         });
-            //     }
-            // });
     }
 </script>
 @endsection

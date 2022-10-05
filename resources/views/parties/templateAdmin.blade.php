@@ -202,8 +202,8 @@
     <script src="{{ asset('assets/js/summernote/summernote.min.js') }}"></script>
     <script src="{{ asset('assets/js/parsley/js/parsley.js') }}"></script>
     <script src="{{ asset('assets/js/parsley/i18n/fr.js') }}"></script>
-    @yield('autres-script')
     @livewireScripts();
+    @yield('autres-script')
     {{-- <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script> --}}
     <script>
         window.addEventListener('swal:modal', event => {
