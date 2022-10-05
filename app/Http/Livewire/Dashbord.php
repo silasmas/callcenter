@@ -8,7 +8,7 @@ use Livewire\Component;
 class Dashbord extends Component
 {
     public $date;
-    public $all;
+    public $all=[];
 
     public function byDate(){
         $this->all=client::selectRaw("clients.*,users.name un,users.prenom up,client_libelles.*")->orderBy('client_libelles.created_at',"ASC")
