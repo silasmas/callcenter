@@ -60,7 +60,7 @@ class SujetController extends Controller
     public function store(Request $request)
     {
         $por = Validator::make($request->all(), [
-            'titre' => 'required',
+            'titre' => 'required|unique:sujets',
         ]);
         if ($por->passes()) {
            

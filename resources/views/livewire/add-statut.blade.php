@@ -33,7 +33,7 @@
                                     <div class='row'>
                                         <div class=" col-lg-12 col-sm-12">
                                             <form method="POST" role="form" class='form-group'id="formStatu"
-                                                data-parsley-validate onsubmit="add('addstatut','#formStatu','#tab-statut')" >
+                                                data-parsley-validate onsubmit="add('addstatute','#formStatu','#tab-statut')" >
                                                 @csrf
                                                 <div class="row">
                                                     <div class="col-sm-12 ">
