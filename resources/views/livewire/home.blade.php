@@ -83,10 +83,7 @@
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Prénom</label>
                                                             <input type="text" placeholder="Prénom "
-                                                                class="form-control" name='prenom' required
-                                                                aria-required="true" {{--
-                                                                value="{{ !empty($user)?$user->prenom:"" }}" --}}
-                                                                data-parsley-minlength="2" data-parsley-trigger="change"
+                                                                class="form-control" name='prenom' 
                                                                 wire:model.defer='prenom'>
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
@@ -143,8 +140,7 @@
                                                         <div class="col-sm-3 form-group ">
                                                             <label>Commune </label>
                                                             <select name="commune" class="select2 carte2 form-control"
-                                                                id="" required aria-required="true"
-                                                                data-parsley-trigger="change"
+                                                                id=""
                                                                 wire:model.defer="commune">
                                                                 @include("parties.listeCommune")
                                                                 <div class="help-block with-errors"></div>
