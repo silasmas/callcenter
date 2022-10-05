@@ -37,7 +37,7 @@
                                     <div class='row'>
                                         <div class=" col-lg-12 col-sm-12">
                                             <form method="POST"class='form-group' id="formScript"
-                                                data-parsley-validate onsubmit="add('addscript','#formScript','#tab-script')" >
+                                                data-parsley-validate onsubmit="add('addscripte','#formScript','#tab-script')" >
                                                 @csrf
                                                 <div class="row">
                                                     <div>

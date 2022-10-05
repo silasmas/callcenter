@@ -32,7 +32,7 @@ Route::middleware(['auth', "verified"])->group(function () {
     Route::get('admin', [ClientLibelleController::class, 'index'])->name('admin');
     Route::get('guser', [ClientLibelleController::class, 'guser'])->name('guser');
     
-    Route::post('addscript', [ScriptController::class, 'store'])->name('addscript');
+    Route::post('addscripte', [ScriptController::class, 'store'])->name('addscripte');
     Route::post('addstatut', [SujetController::class, 'store'])->name('addstatut');
     Route::post('addlibelle', [SujetController::class, 'addlibelle'])->name('addlibelle');
     Route::post('addClient', [ClientController::class, 'store'])->name('addClient');
