@@ -33,6 +33,7 @@ class Home extends Component
     public $libelle="";
     public $type="";
     public $date="";
+    public $heure="";
     public $ids="";
     public $sexe="";
     public $description="";
@@ -118,7 +119,7 @@ class Home extends Component
                         'libelle_id' => $st->titre,
                         'user_id' =>Auth::user()->id,
                         'commentaire' => $this->description,
-                        'created_at' => $this->date,
+                        'created_at' => $this->date." ".$this->heure,
                         'type' => $this->type,
                     ]);
                     $this->vider();
@@ -131,7 +132,7 @@ class Home extends Component
                         'user_id' => Auth::user()->id,
                         'commentaire' => $this->description,
                         'type' => $this->type,
-                        'created_at' => $this->date,
+                        'created_at' => $this->date." ".$this->heure,
                     ]);
                     
                     $this->vider();
@@ -165,7 +166,7 @@ class Home extends Component
                     'libelle_id' => $st->titre,
                     'user_id' =>Auth::user()->id,
                     'commentaire' => $this->description,
-                    'created_at' => $this->date,
+                    'created_at' => $this->date." ".$this->heure,
                     'type' => $this->type,
                 ]);
                 
@@ -177,7 +178,7 @@ class Home extends Component
                     'libelle_id' => $this->libelle,
                     'user_id' => Auth::user()->id,
                     'commentaire' => $this->description,
-                    'created_at' => $this->date,
+                    'created_at' => $this->date." ".$this->heure,
                 ]);
                 
                 $this->vider();
@@ -259,6 +260,9 @@ class Home extends Component
         $this->avenu="";
         $this->numero="";
         $this->ville="";
+        $this->type="";
+        $this->date="";
+        $this->heure="";
         $this->commune="";
         $this->sexe="";
         $this->ids="";

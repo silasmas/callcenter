@@ -204,7 +204,7 @@
                                                                 }}</span> @enderror
 
                                                         </div>
-                                                        <div class="col-sm-3 form-group ">
+                                                        <div class="col-sm-2 form-group ">
                                                             <label>Date de l'appel </label>
                                                             <input type="date" placeholder="Date de l'appel "
                                                                 class="form-control" name='date'
@@ -213,7 +213,16 @@
                                                                 }}</span> @enderror
 
                                                         </div>
-                                                        <div class="col-sm-5 form-group ">
+                                                        <div class="col-sm-2 form-group ">
+                                                            <label>Heure (12:30) </label>
+                                                            <input type="text" placeholder="Heure de l'appel (12:300)"
+                                                                class="form-control" name='date'
+                                                                wire:model.defer='heure'>
+                                                            @error('numero') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
+
+                                                        </div>
+                                                        <div class="col-sm-4 form-group ">
                                                             <label>Satut 1 </label>
                                                             <select name="statut" id="statut"
                                                                 class="form-control select2"
