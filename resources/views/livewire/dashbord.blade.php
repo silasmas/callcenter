@@ -70,7 +70,7 @@
                                             <td>{{ 'V/ '.$i->ville." C/ ".$i->commune." Q/ ".$i->quartier." AV/
                                                 ".$i->avenu }}</td>
                                             <td>{{ $i->libelle_id }}</td>
-                                            <td>{{ Str::limit($i->commentaire, 100 , '...') }}</td>
+                                            <td>{{ $i->commentaire   }}</td>
                                             <td>{{ $i->un." ".$i->up }}</td>
                                             <td> {{ \Carbon\Carbon::parse( $i->created_at)->isoFormat('LLLL') }}
                                             </td>
