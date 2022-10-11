@@ -311,9 +311,9 @@
     $(document).ready(function() {
         $(".select2").select2();
     });
-    function select(id){
-        var $state = $('#libelle');
-        @this.selectstatut=id;
-    }
+    // function select(id){
+    //     var $state = $('#libelle');
+    //     @this.selectstatut=id;
+    // }
 </script>
 @endsection

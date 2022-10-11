@@ -42,6 +42,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
+                                            <th>Type</th>
                                             <th>Nom</th>
                                             <th>Postnom</th>
                                             <th>Prénom</th>
