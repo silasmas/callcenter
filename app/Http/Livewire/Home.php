@@ -119,6 +119,7 @@ class Home extends Component
                         'user_id' =>Auth::user()->id,
                         'commentaire' => $this->description,
                         'created_at' => $this->date,
+                        'type' => $this->type,
                     ]);
                     $this->vider();
                     $this->notify("success","Enregistrement réussit","Merci");
@@ -129,6 +130,7 @@ class Home extends Component
                         'libelle_id' => $this->libelle,
                         'user_id' => Auth::user()->id,
                         'commentaire' => $this->description,
+                        'type' => $this->type,
                         'created_at' => $this->date,
                     ]);
                     
@@ -164,6 +166,7 @@ class Home extends Component
                     'user_id' =>Auth::user()->id,
                     'commentaire' => $this->description,
                     'created_at' => $this->date,
+                    'type' => $this->type,
                 ]);
                 
                 $this->vider();
