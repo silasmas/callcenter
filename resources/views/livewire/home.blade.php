@@ -223,7 +223,7 @@
 
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
-                                                            <label>Satut 1 </label>
+                                                            <label>Satut </label>
                                                             <select name="statut" id="statut"
                                                                 class="form-control select2"                                                              
                                                                 required
