@@ -56,8 +56,7 @@
                                             <th>Date</th>
                                         </tr>
                                     </thead>
-                                    <tbody >
-                                        
+                                    <tbody >                                        
                                         @forelse ($all as $i)
                                         <tr class="gradeX">
                                             <td>{{ $loop->iteration}}</td>
