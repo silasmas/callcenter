@@ -226,7 +226,7 @@
                                                             <label>Satut 1 </label>
                                                             <select name="statut" id="statut"
                                                                 class="form-control select2"
-                                                                {{-- onchange="select(this.value)"  --}}
+                                                              
                                                                 required
                                                                 wire:model.defer='statut'>
                                                                 <option value=" " disabled selected> --Selectionez un
