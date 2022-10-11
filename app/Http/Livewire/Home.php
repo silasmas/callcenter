@@ -119,7 +119,7 @@ class Home extends Component
                         'libelle_id' => $st->titre,
                         'user_id' =>Auth::user()->id,
                         'commentaire' => $this->description,
-                        'created_at' => $this->date." :".$this->heure.":00",
+                        'created_at' => $this->date." ".$this->heure.":00",
                         'type' => $this->type,
                     ]);
                     $this->vider();
@@ -132,7 +132,7 @@ class Home extends Component
                         'user_id' => Auth::user()->id,
                         'commentaire' => $this->description,
                         'type' => $this->type,
-                        'created_at' => $this->date." :".$this->heure.":00",
+                        'created_at' => $this->date." ".$this->heure.":00",
                     ]);
                     
                     $this->vider();
@@ -178,7 +178,7 @@ class Home extends Component
                     'libelle_id' => $this->libelle,
                     'user_id' => Auth::user()->id,
                     'commentaire' => $this->description,
-                    'created_at' => $this->date." :".$this->heure.":00",
+                    'created_at' => $this->date." ".$this->heure.":00",
                 ]);
                 
                 $this->vider();
