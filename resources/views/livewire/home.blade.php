@@ -225,8 +225,7 @@
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Satut 1 </label>
                                                             <select name="statut" id="statut"
-                                                                class="form-control select2"
-                                                              
+                                                                class="form-control select2"                                                              
                                                                 required
                                                                 wire:model.defer='statut'>
                                                                 <option value=" " disabled selected> --Selectionez un
@@ -312,9 +311,9 @@
     $(document).ready(function() {
         $(".select2").select2();
     });
-    // function select(id){
-    //     var $state = $('#libelle');
-    //     @this.selectstatut=id;
-    // }
+    function select(id){
+        var $state = $('#libelle');
+        @this.selectstatut=id;
+    }
 </script>
 @endsection
