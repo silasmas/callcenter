@@ -57,7 +57,7 @@
                                         </tr>
                                     </thead>
                                     <tbody >
-                                        {{ dd($all) }}
+                                        {{-- {{ dd($all) }} --}}
                                         @forelse ($all as $i)
                                         <tr class="gradeX">
                                             <td>{{ $loop->iteration}}</td>
