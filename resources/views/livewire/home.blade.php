@@ -213,9 +213,9 @@
                                                                 }}</span> @enderror
 
                                                         </div>
-                                                        <div class="col-sm-2 form-group ">
+                                                        <div class="col-sm-2 form-group clockpicker" data-autoclose="true">
                                                             <label>Heure (12:30) </label>
-                                                            <input type="text" placeholder="Heure de l'appel (12:300)"
+                                                            <input type="text" placeholder="Heure 12:300"
                                                                 class="form-control" name='date'
                                                                 wire:model.defer='heure'>
                                                             @error('numero') <span class="error text-danger">{{ $message
@@ -228,8 +228,7 @@
                                                                 class="form-control select2"                                                              
                                                                 required
                                                                 wire:model.defer='statut'>
-                                                                <option value=" " disabled selected> --Selectionez un
-                                                                    statut--</option>
+                                                                <option value="" selected> --Selectionez un statut--</option>
                                                                 @forelse ($statu as $s)
                                                                 <option value="{{ $s->id }}">{{ $s->titre }}</option>
                                                                 @empty
@@ -306,10 +305,12 @@
 @section('autres-script')
 <script src="{{ asset('assets/js/select2/select2.full.min.js') }}"></script>
 <script src="{{ asset('assets/js/jasny/jasny-bootstrap.min.js') }}"></script>
-
+ <!-- Clock picker -->
+ <script src="{{ asset('assets/js/clockpicker/clockpicker.js') }}"></script>
 <script>
     $(document).ready(function() {
         $(".select2").select2();
+        $('.clockpicker').clockpicker();
     });
     function select(id){
         var $state = $('#libelle');

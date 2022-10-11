@@ -64,28 +64,31 @@ class Home extends Component
         ->get();
     }
     public function updatedClient(){
-        $this->tab = client::where("nom","LIKE","{$this->client}")
-        ->orWhere("telephone","LIKE","{$this->client}")
-        ->orWhere("nom","LIKE","{$this->client}")
-        ->orWhere("prenom","LIKE","{$this->client}")
-        ->orWhere("email","LIKE","{$this->client}")
-        ->first();
-
-        //  dd($this->tab);
-        if ($this->tab) {
-            $this->existe=false;
-            $this->ids=$this->tab->id;
-            // $this->user=$this->tab;
-            //session()->with(['message'=>count($tab).' Client(s) trouvé(s)',"type"=>"success"]);
-            session()->flash('message',' Client '.$this->s($this->tab->count()). ' trouvé'.$this->s($this->tab->count()));
-            session()->flash('type', 'success');
-        } else {
-            $this->existe=true;
-            session()->flash('message', 'Aucun client trouvé');
-            session()->flash('type', 'danger');
+        if (!empty($this->client)){
+            $this->tab = client::where("nom","LIKE","{$this->client}")
+            ->orWhere("telephone","LIKE","{$this->client}")
+            ->orWhere("nom","LIKE","{$this->client}")
+            ->orWhere("prenom","LIKE","{$this->client}")
+            ->orWhere("email","LIKE","{$this->client}")
+            ->first();
+    
+            //  dd($this->tab);
+            if ($this->tab) {
+                $this->existe=false;
+                $this->ids=$this->tab->id;
+                // $this->user=$this->tab;
+                //session()->with(['message'=>count($tab).' Client(s) trouvé(s)',"type"=>"success"]);
+                session()->flash('message',' Client '.$this->s($this->tab->count()). ' trouvé'.$this->s($this->tab->count()));
+                session()->flash('type', 'success');
+            } else {
+                $this->existe=true;
+                session()->flash('message', 'Aucun client trouvé');
+                session()->flash('type', 'danger');
+            }
+    
+            return $this->tab ;
         }
-
-        return $this->tab ;
+        
     }
     protected $rules = [
         'nom' => 'required',
@@ -269,6 +272,7 @@ class Home extends Component
         $this->ids="";
         $this->libelle="";
         $this->statut="";
+        $this->client="";
         $this->client="";
 
         $this->libelles=[];
