@@ -95,6 +95,7 @@ class Home extends Component
         'telephone' => 'required',
         'date' => 'required',
         'type'=> 'required',
+        'statut'=> 'required',
     ];
     public function saveClient(){
         if ($this->ids=="") {
