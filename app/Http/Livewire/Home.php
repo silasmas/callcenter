@@ -20,6 +20,7 @@ class Home extends Component
     public $ville="";
     public $commune="";
     public $nom="";
+    public $titre="";    
     public $postnom="";
     public $prenom="";
     public $telephone="";

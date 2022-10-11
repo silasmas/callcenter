@@ -118,7 +118,7 @@
                                                                 wire:model.defer="sexe">
                                                                 <option value="" selected> --Selectionez un genre--
                                                                 </option>
-                                                                <option value="M">Massculin</option>
+                                                                <option value="M">Masculin</option>
                                                                 <option value="F">Féminin</option>
                                                             </select>
                                                             @error('sexe') <span class="error text-danger">{{ $message
