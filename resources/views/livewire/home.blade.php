@@ -1,14 +1,7 @@
 <div>
     <div class="wrapper wrapper-content animated fadeIn">
         <div class="row m-t-lg">
-            @if (session()->has("message"))
-            <div class="col-md-6 col-md-offset-3">
-                <div class="alert alert-{{session()->get('type')}} alert-dismissable">
-                    <button aria-hidden="true" data-dismiss="alert" class="close" type="button">×</button>
-                    {{ session()->get('message') }}
-                </div>
-            </div>
-            @endif
+
             <div class="col-lg-12">
                 <div class="tabs-container">
                     <ul class="nav nav-tabs">
@@ -52,6 +45,19 @@
                                         <div class="sk-cube2"></div>
                                     </div>
                                     <div class="tab-pane active">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                @if (session()->has("message"))
+                                                <div class="col-md-6 col-md-offset-3">
+                                                    <div class="alert alert-{{session()->get('type')}} alert-dismissable">
+                                                        <button aria-hidden="true" data-dismiss="alert" class="close"
+                                                            type="button">×</button>
+                                                        {{ session()->get('message') }}
+                                                    </div>
+                                                </div>
+                                                @endif
+                                            </div>
+                                        </div>
                                         <div class='row'>
                                             <div class=" col-lg-12 col-sm-12">
                                                 <form method="POST" class='form-group' wire:submit.prevent="saveClient"
@@ -64,7 +70,18 @@
                                                             <input name="id" style="display: none"
                                                                 wire:model.defer='ids' />
                                                         </div>
-
+                                                        <div class="col-sm-4 form-group ">
+                                                            <label>Type d'appel</label>
+                                                            <select name="sexe" id="" class="form-control"
+                                                                wire:model.defer="type">
+                                                                <option value="" selected> --Selectionez un type--
+                                                                </option>
+                                                                <option value="Emis">Emis</option>
+                                                                <option value="Reçu">Reçu</option>
+                                                            </select>
+                                                            @error('type') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
+                                                        </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Nom</label>
                                                             <input type="text" placeholder="Nom " class="form-control"
@@ -72,50 +89,56 @@
                                                                 value="{{ !empty($user)?$user->nom:"" }}" --}}
                                                                 data-parsley-minlength="2" data-parsley-trigger="change"
                                                                 wire:model.defer='nom'>
-                                                                @error('nom') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('nom') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
 
                                                         </div>
+
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Post-nom</label>
                                                             <input type="text" placeholder="Post-nom "
                                                                 class="form-control" name='postnom' {{--
                                                                 value="{{ !empty($user)?$user->postnom:"" }}" --}}
                                                                 wire:model.defer='postnom'>
-                                                                @error('postnom') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('postnom') <span class="error text-danger">{{
+                                                                $message }}</span> @enderror
 
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Prénom</label>
                                                             <input type="text" placeholder="Prénom "
-                                                                class="form-control" name='prenom' 
+                                                                class="form-control" name='prenom'
                                                                 wire:model.defer='prenom'>
-                                                                @error('prenom') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('prenom') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>sexe</label>
                                                             <select name="sexe" id="" class="form-control"
                                                                 wire:model.defer="sexe">
-                                                                <option disabled selected> --Selectionez un genre--
+                                                                <option value="" selected> --Selectionez un genre--
                                                                 </option>
                                                                 <option value="M">Massculin</option>
                                                                 <option value="F">Féminin</option>
                                                             </select>
-                                                            @error('sexe') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('sexe') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Téléphone</label>
                                                             <input type="text" placeholder="Téléphone "
                                                                 class="form-control" name='telephone' required
-                                                                aria-required="true" 
-                                                                data-parsley-minlength="2" data-parsley-trigger="change"
+                                                                aria-required="true" data-parsley-minlength="2"
+                                                                data-parsley-trigger="change"
                                                                 wire:model.defer='telephone'>
-                                                                @error('telephone') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('telephone') <span class="error text-danger">{{
+                                                                $message }}</span> @enderror
 
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Téléphone 2</label>
                                                             <input type="text" placeholder="Téléphone "
-                                                                class="form-control" name='tel2' 
+                                                                class="form-control" name='tel2'
                                                                 wire:model.defer='tel2'>
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
@@ -129,11 +152,11 @@
                                                             <label>Email</label>
                                                             <input type="text" placeholder="Email " class="form-control"
                                                                 name='email' wire:model.defer='email'>
-                                                                @error('email') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('email') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
 
                                                         </div>
-
-                                                        <div class="col-sm-4 form-group ">
+                                                        <div class="col-sm-3 form-group ">
                                                             <label>Ville</label>
                                                             <select name="ville" class="select2 form-control" id=""
                                                                 required aria-required="true"
@@ -141,42 +164,56 @@
                                                                 @include("parties.listeVille")
 
                                                                 <div class="help-block with-errors">
-                                                                    @error('ville') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                                    @error('ville') <span class="error text-danger">{{
+                                                                        $message }}</span> @enderror
                                                                 </div>
                                                             </select>
                                                         </div>
-                                                            <div class="col-sm-4 form-group ">
-                                                                <label>Commune </label>
-                                                                <select name="commune" class="carte2 form-control"
-                                                                    id="" wire:model.defer="commune">
-                                                                    @include("parties.listeCommune")
-                                                                </select>
-                                                                @error('commune') <span class="error text-danger">{{ $message }}</span> @enderror                                                    
-                                                            </div>
-                                                            <div class="col-sm-3 form-group ">
-                                                                <label>Quartier</label>
-                                                                <input type="text" placeholder="Quartier "
-                                                                    class="form-control" name='quartier'
-                                                                    wire:model.defer='commune'>
-                                                                    @error('quartier') <span class="error text-danger">{{ $message }}</span> @enderror
-    
-                                                            </div>
-                                                            <div class="col-sm-3 form-group ">
-                                                                <label>Avenue</label>
-                                                                <input type="text" placeholder="Avenue "
-                                                                    class="form-control" name='avenu' 
-                                                                    wire:model.defer='avenu'>
-                                                                    @error('avenu') <span class="error text-danger">{{ $message }}</span> @enderror
-                                                            </div>
-                                                            <div class="col-sm-2 form-group ">
-                                                                <label>Numéro </label>
-                                                                <input type="text" placeholder="Numéro "
-                                                                    class="form-control" name='numero' 
-                                                                    wire:model.defer='numero'>
-                                                                    @error('numero') <span class="error text-danger">{{ $message }}</span> @enderror
-    
-                                                            </div>
-                                                        <div class="col-sm-6 form-group ">
+                                                        <div class="col-sm-3 form-group ">
+                                                            <label>Commune </label>
+                                                            <select name="commune" class="carte2 form-control select2"
+                                                                id="" wire:model.defer="commune">
+                                                                @include("parties.listeCommune")
+                                                            </select>
+                                                            @error('commune') <span class="error text-danger">{{
+                                                                $message }}</span> @enderror
+                                                        </div>
+                                                        <div class="col-sm-2 form-group ">
+                                                            <label>Quartier</label>
+                                                            <input type="text" placeholder="Quartier "
+                                                                class="form-control" name='quartier'
+                                                                wire:model.defer='commune'>
+                                                            @error('quartier') <span class="error text-danger">{{
+                                                                $message }}</span> @enderror
+
+                                                        </div>
+                                                        <div class="col-sm-3 form-group ">
+                                                            <label>Avenue</label>
+                                                            <input type="text" placeholder="Avenue "
+                                                                class="form-control" name='avenu'
+                                                                wire:model.defer='avenu'>
+                                                            @error('avenu') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
+                                                        </div>
+                                                        <div class="col-sm-1 form-group ">
+                                                            <label>Numéro </label>
+                                                            <input type="text" placeholder="Numéro "
+                                                                class="form-control" name='numero'
+                                                                wire:model.defer='numero'>
+                                                            @error('numero') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
+
+                                                        </div>
+                                                        <div class="col-sm-3 form-group ">
+                                                            <label>Date de l'appel </label>
+                                                            <input type="date" placeholder="Date de l'appel "
+                                                                class="form-control" name='date'
+                                                                wire:model.defer='date'>
+                                                            @error('numero') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
+
+                                                        </div>
+                                                        <div class="col-sm-5 form-group ">
                                                             <label>Satut 1 </label>
                                                             <select name="statut" id="statut"
                                                                 class="form-control select2"
@@ -190,7 +227,8 @@
 
                                                                 @endforelse
                                                             </select>
-                                                            @error('statut') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('statut') <span class="error text-danger">{{ $message
+                                                                }}</span> @enderror
 
                                                         </div>
                                                         @if(!is_null($libelles) )
@@ -211,7 +249,8 @@
                                                                 </option>
                                                                 @endforelse
                                                             </select>
-                                                            @error('libelle') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('libelle') <span class="error text-danger">{{
+                                                                $message }}</span> @enderror
 
                                                         </div>
                                                         @endif
@@ -221,17 +260,18 @@
                                                             <textarea name="description" class="form-control" rows="2"
                                                                 cols="60" wire:model.defer='description'>
                                                                 </textarea>
-                                                                @error('description') <span class="error text-danger">{{ $message }}</span> @enderror
+                                                            @error('description') <span class="error text-danger">{{
+                                                                $message }}</span> @enderror
 
                                                         </div>
-                                                        <div class="col-lg-offset-3 col-lg-6 col-sm-12 form-group" >
-                                                            <div class="col-sm-5" >
+                                                        <div class="col-lg-offset-3 col-lg-6 col-sm-12 form-group">
+                                                            <div class="col-sm-5">
                                                                 <button class="btn btn-sm btn-warning"
-                                                                wire:click="modifClient" @disabled($modif)
-                                                                wire:loading.property='disabled'>Modifier </button>
-            
+                                                                    wire:click="modifClient" @disabled($modif)
+                                                                    wire:loading.property='disabled'>Modifier </button>
+
                                                             </div>
-                                                          
+
                                                             <div class="col-sm-offset-1 col-sm-5">
                                                                 <button class="ladda-button btn btn-sm btn-primary"
                                                                     type="submit">Enregistrer</button>
@@ -240,7 +280,7 @@
                                                         </div>
                                                     </div>
                                                 </form>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -259,8 +299,8 @@
 <script src="{{ asset('assets/js/jasny/jasny-bootstrap.min.js') }}"></script>
 
 <script>
-    $(document).ready(function() {    
-        $(".select2").select2(); 
+    $(document).ready(function() {
+        $(".select2").select2();
     });
     function select(id){
         var $state = $('#libelle');

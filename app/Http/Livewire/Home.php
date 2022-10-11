@@ -31,6 +31,8 @@ class Home extends Component
     public $quartier="";
     public $statut="";
     public $libelle="";
+    public $type="";
+    public $date="";
     public $ids="";
     public $sexe="";
     public $description="";
@@ -86,6 +88,8 @@ class Home extends Component
     protected $rules = [
         'nom' => 'required',
         'telephone' => 'required',
+        'date' => 'required',
+        'type'=> 'required',
     ];
     public function saveClient(){
         if ($this->ids=="") {
@@ -114,6 +118,7 @@ class Home extends Component
                         'libelle_id' => $st->titre,
                         'user_id' =>Auth::user()->id,
                         'commentaire' => $this->description,
+                        'created_at' => $this->date,
                     ]);
                     $this->vider();
                     $this->notify("success","Enregistrement réussit","Merci");
@@ -124,6 +129,7 @@ class Home extends Component
                         'libelle_id' => $this->libelle,
                         'user_id' => Auth::user()->id,
                         'commentaire' => $this->description,
+                        'created_at' => $this->date,
                     ]);
                     
                     $this->vider();
@@ -133,6 +139,7 @@ class Home extends Component
             }
         
         } else {
+            $this->validate();
            $cl= client::find($this->ids);
            if($cl){
                 $cl->nom = $this->nom;
@@ -156,6 +163,7 @@ class Home extends Component
                     'libelle_id' => $st->titre,
                     'user_id' =>Auth::user()->id,
                     'commentaire' => $this->description,
+                    'created_at' => $this->date,
                 ]);
                 
                 $this->vider();
@@ -166,6 +174,7 @@ class Home extends Component
                     'libelle_id' => $this->libelle,
                     'user_id' => Auth::user()->id,
                     'commentaire' => $this->description,
+                    'created_at' => $this->date,
                 ]);
                 
                 $this->vider();

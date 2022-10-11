@@ -4,8 +4,13 @@ namespace App\Http\Livewire;
 
 use App\Models\client;
 use Livewire\Component;
-
-class Dashbord extends Component
+use Mediconesystems\LivewireDatatables\{
+    Http\Livewire\LivewireDatatable,
+    Column,
+    NumberColumn,
+    DateColumn
+};
+class Dashbord extends LivewireDatatable
 {
     public $date;
     public $all = [];
