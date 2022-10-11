@@ -1,6 +1,6 @@
 {{-- <div class="col-12 form-group"> --}}
 
-        <option value=""  selected> --choisissez la commune-- </option>
+        <option value="" disabled  selected> --choisissez la commune-- </option>
         <option value="Province">Province (si le client est en province)</option>
         <option value="BANDALUNGWA">BANDALUNGWA</option>
         <option value="BARUMBU">BARUMBU</option>

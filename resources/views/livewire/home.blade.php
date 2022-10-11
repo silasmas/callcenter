@@ -216,10 +216,9 @@
                                                         <div class="col-sm-2 form-group clockpicker" data-autoclose="true">
                                                             <label>Heure (12:30) </label>
                                                             <input type="text" placeholder="Heure 12:300"
-                                                                class="form-control" name='date'
-                                                                wire:model.defer='heure'>
-                                                            @error('numero') <span class="error text-danger">{{ $message
-                                                                }}</span> @enderror
+                                                                class="form-control" name='heure'
+                                                                wire:model='heure'>
+                                                            @error('heure') <span class="error text-danger">{{ $message}}</span> @enderror
 
                                                         </div>
                                                         <div class="col-sm-4 form-group ">
@@ -228,7 +227,7 @@
                                                                 class="form-control select2"                                                              
                                                                 required
                                                                 wire:model.defer='statut'>
-                                                                <option value="" selected> --Selectionez un statut--</option>
+                                                                <option value="" disabled selected> --Selectionez un statut--</option>
                                                                 @forelse ($statu as $s)
                                                                 <option value="{{ $s->id }}">{{ $s->titre }}</option>
                                                                 @empty
@@ -310,7 +309,7 @@
 <script>
     $(document).ready(function() {
         $(".select2").select2();
-        $('.clockpicker').clockpicker();
+        //$('.clockpicker').clockpicker();
     });
     function select(id){
         var $state = $('#libelle');

@@ -90,6 +90,9 @@ class Home extends Component
         }
         
     }
+//     public function updatedHeure(){
+//         dd($this->heure);
+// }
     protected $rules = [
         'nom' => 'required',
         'telephone' => 'required',
@@ -98,6 +101,9 @@ class Home extends Component
         'statut'=> 'required',
     ];
     public function saveClient(){
+
+        $dt= $this->date." ".$this->heure;
+       // dd($dt);
         if ($this->ids=="") {
             $this->validate();
 
@@ -124,8 +130,8 @@ class Home extends Component
                         'libelle_id' => $st->titre,
                         'user_id' =>Auth::user()->id,
                         'commentaire' => $this->description,
-                        'created_at' => "$this->date $this->heure:00",
                         'type' => $this->type,
+                        'created_at' =>$dt,
                     ]);
                     $this->vider();
                     $this->notify("success","Enregistrement réussit","Merci");
@@ -137,7 +143,7 @@ class Home extends Component
                         'user_id' => Auth::user()->id,
                         'commentaire' => $this->description,
                         'type' => $this->type,
-                        'created_at' => "$this->date $this->heure:00",
+                        'created_at' => $dt,
                     ]);
                     
                     $this->vider();
@@ -171,7 +177,7 @@ class Home extends Component
                     'libelle_id' => $st->titre,
                     'user_id' =>Auth::user()->id,
                     'commentaire' => $this->description,
-                    'created_at' => "$this->date $this->heure:00",
+                    'created_at' => $dt,
                     'type' => $this->type,
                 ]);
                 
@@ -183,7 +189,7 @@ class Home extends Component
                     'libelle_id' => $this->libelle,
                     'user_id' => Auth::user()->id,
                     'commentaire' => $this->description,
-                    'created_at' => "$this->date $this->heure:00",
+                    'created_at' => $dt,
                 ]);
                 
                 $this->vider();

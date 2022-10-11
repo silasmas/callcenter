@@ -1,6 +1,6 @@
 {{-- <div class="col-12 form-group"> --}}
     
-        <option value="" selected> --choisissez la ville-- </option>
+        <option value="" disabled selected> --choisissez la ville-- </option>
             <Option value="BANDUNDU">BANDUNDU</option>
             <Option value="BARAKA">BARAKA</option>
             <Option value="BENI">BENI</option>
