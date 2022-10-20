@@ -224,7 +224,7 @@
                                                         <div class="col-sm-4 form-group ">
                                                             <label>Satut </label>
                                                             <select name="statut" id="statut"
-                                                                class="form-control select2"                                                              
+                                                                class="form-control select2"
                                                                 required
                                                                 wire:model.defer='statut'>
                                                                 <option value="" disabled selected> --Selectionez un statut--</option>
