@@ -217,7 +217,7 @@
                                                             <label>Heure (12:30) </label>
                                                             <input type="text" placeholder="Heure 12:300"
                                                                 class="form-control" name='heure'
-                                                                wire:model='heure'>
+                                                                wire:model.defer='heure'>
                                                             @error('heure') <span class="error text-danger">{{ $message}}</span> @enderror
 
                                                         </div>
